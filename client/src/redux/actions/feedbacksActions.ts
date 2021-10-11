@@ -1,9 +1,16 @@
-import { GET_FEEDBACKS, FeedbacksActionTypes} from '../types/feedbacksTypes';
+import { GET_FEEDBACKS,ADD_FEEDBACK, FeedbacksActionTypes, FeedbackActionTypes} from '../types/feedbacksTypes';
 import {Feedback} from "../interfaces/feedbacks";
 
-export const getFeedbacksActions = (feedbacks: Feedback[]): FeedbacksActionTypes => {
+export const getFeedbacksActions = (feedbackData:{feedbacks:Feedback[], customerId:number}): FeedbacksActionTypes => {
   return {
     type: GET_FEEDBACKS,
-    payload: feedbacks
+    payload: feedbackData
+  };
+}; 
+
+export const addFeedbackActions = (feedback: Feedback): FeedbackActionTypes => {
+  return {
+    type: ADD_FEEDBACK,
+    payload: feedback
   };
 };

@@ -32,11 +32,11 @@ export default function CustomersList() {
         if (event.key === 'Enter') {
             addCustomer(newCustomerVal, dispatch);
             setNewInput(false);
-        }
+        } 
     }
 
     const handleClickCustomerName = (customerId: any) => {
-        dispatch(getFeedbacks(customerId));
+        getFeedbacks(customerId,dispatch);
     }
 
     const escFunction = useCallback((event) => {

@@ -28,7 +28,6 @@ export const addCustomer = (customerName: string, dispatch: Dispatch<CustomerAct
      fetch('http://localhost:3002/api/v1/customers',configs).then(res => 
     res.json()
     ).then(data => { 
-      // const dispatch = Dispatch<CustomerActionType>
         dispatch(addCustomerActions(data[0]))
       }); 
 
