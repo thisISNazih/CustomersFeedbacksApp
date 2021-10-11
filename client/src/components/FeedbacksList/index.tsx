@@ -21,8 +21,8 @@ display:flex;
 flex-direction:column;  
 width: 50%;
 `;
-const ActionButton = styled.button`
-    max-width:250px; 
+const ActionButton = styled.div`
+    max-width:140px; 
     border:none;
     background-color:whitesmoke;
 `
@@ -36,7 +36,7 @@ export default function FeedbacksList() {
     const selectedCustomerId = useSelector((state: AppState) => state.feedbacksList.selectedCustomerId);
 
     const feedbacksListItems = feedbacksList.length > 0 ? feedbacksList.map((feedback: Feedback) => (
-        <FeedbackItem>
+        <FeedbackItem key={feedback.id}>
             <FeedbackText>{feedback.content}</FeedbackText>
         </FeedbackItem>
     )) : selectedCustomerId && <EmptyResults>No feedbacks available</EmptyResults>

@@ -17,7 +17,6 @@ export const getCustomers = (dispatch: Dispatch<CustomersActionTypes>) => {
 
 
 export const addCustomer = (customerName: string, dispatch: Dispatch<CustomerActionType>) => { 
-    console.log("here again2", customerName)
     const configs = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },

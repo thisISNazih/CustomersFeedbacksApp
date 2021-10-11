@@ -4,7 +4,7 @@ import { getCustomers, addCustomer } from "../../redux/effects/customersEffects"
 import { getFeedbacks } from "../../redux/effects/feedbacksEffects";
 import { Customer } from "../../redux/interfaces/cutsomers";
 import { AppState } from '../../redux/store/store';
-import Button from "@material-ui/core/Button"; 
+import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 const CustomerItem = styled.div`
@@ -21,8 +21,8 @@ width: 50%;
 margin-right: 2rem; 
 border-right: 2px solid #000;
 `;
-const ActionButton = styled.button`
-    max-width:250px; 
+const ActionButton = styled.div`
+    max-width:140px; 
     border:none; 
     background-color:whitesmoke;
 `
@@ -34,11 +34,11 @@ export default function CustomersList() {
         if (event.key === 'Enter') {
             addCustomer(newCustomerVal, dispatch);
             setNewInput(false);
-        } 
+        }
     }
 
     const handleClickCustomerName = (customerId: any) => {
-        getFeedbacks(customerId,dispatch);
+        getFeedbacks(customerId, dispatch);
     }
 
     const escFunction = useCallback((event) => {
@@ -62,7 +62,7 @@ export default function CustomersList() {
     }, [dispatch]);
     const customersList = useSelector((state: AppState) => state.customersList.customersList);
     const customersListItems = customersList.map((customer: Customer) => (
-        <CustomerItem>
+        <CustomerItem key={customer.id}>
             <div onClick={() => handleClickCustomerName(customer.id)} key={customer.id}>
                 <CustomerName>{customer.name}</CustomerName>
             </div>
