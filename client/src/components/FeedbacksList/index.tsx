@@ -39,7 +39,7 @@ export default function FeedbacksList() {
         <FeedbackItem>
             <FeedbackText>{feedback.content}</FeedbackText>
         </FeedbackItem>
-    )) : <EmptyResults>No feedbacks available</EmptyResults>
+    )) : selectedCustomerId && <EmptyResults>No feedbacks available</EmptyResults>
 
 
 
@@ -85,13 +85,13 @@ export default function FeedbacksList() {
         <FeedbacksItemsList>
             <h3>Feedbacks</h3> 
                 {selectedCustomerId && <ActionButton><Button onClick={() => handleNewFeedback()}>Add Feedback</Button></ActionButton>}
-            <TextField
+            {selectedCustomerId&&<TextField
                 id="outlined-name"
                 label="Search"
                 value={searchKey}
                 onChange={handleSearchInput} 
                 onKeyDown={(e) => handleSearchKeydown(e)}
-            />  
+            />}  
             {clearSearch && <a href="#" onClick={()=>handleClearSearch()}>clear</a>}
             {newInput && <TextField type="text" value={newFeedbackVal} placeholder="New Feedback" onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => handleInputChange(e)} />}
             {feedbacksListItems}
