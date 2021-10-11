@@ -1,4 +1,4 @@
-import { GET_FEEDBACKS,ADD_FEEDBACK, FeedbacksActionTypes, FeedbackActionTypes} from '../types/feedbacksTypes';
+import { GET_FEEDBACKS,ADD_FEEDBACK, SEARCH_FEEDBACKS,FeedbacksActionTypes, FeedbackActionTypes} from '../types/feedbacksTypes';
 import {Feedback} from "../interfaces/feedbacks";
 
 export const getFeedbacksActions = (feedbackData:{feedbacks:Feedback[], customerId:number}): FeedbacksActionTypes => {
@@ -13,4 +13,11 @@ export const addFeedbackActions = (feedback: Feedback): FeedbackActionTypes => {
     type: ADD_FEEDBACK,
     payload: feedback
   };
-};
+}; 
+
+export const searchFeedbacksAction = (keyword: string) => {
+  return {
+    type: SEARCH_FEEDBACKS,
+    payload: keyword
+  }
+}

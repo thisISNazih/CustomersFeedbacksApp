@@ -1,4 +1,4 @@
-import { getFeedbacksActions, addFeedbackActions } from '../actions/feedbacksActions';
+import { getFeedbacksActions, addFeedbackActions, searchFeedbacksAction } from '../actions/feedbacksActions';
 import { Dispatch } from 'redux';
 import { FeedbacksActionTypes, FeedbackActionTypes } from '../types/feedbacksTypes';
 
@@ -32,4 +32,8 @@ export const addFeedback = (feedback: string,customerId: number|null, dispatch: 
       dispatch(addFeedbackActions(data[0]))
     }); 
 
-};
+}; 
+
+export const searchFeedback = (keyword:string, dispatch:Dispatch) => {
+   dispatch(searchFeedbacksAction(keyword))
+}

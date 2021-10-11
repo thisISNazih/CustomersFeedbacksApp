@@ -40,9 +40,7 @@ app.get('/api/v1/customerfeedbacks/:id', async(req, res) => {
 })
 // nodemon.emit('quit');
 app.post('/api/v1/customerfeedbacks', async(req, res) => {
-    console.log(req.body.content,req.body.customer_id)
     const results = await db.query(`INSERT INTO feedbacks (content,customer_id) values('${req.body.content}',${req.body.customer_id}) RETURNING content,id,customer_id`)
-    console.log(results)
     res.status(201).send(results.rows)
 })
 

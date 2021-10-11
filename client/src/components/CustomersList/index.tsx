@@ -4,7 +4,8 @@ import { getCustomers, addCustomer } from "../../redux/effects/customersEffects"
 import { getFeedbacks } from "../../redux/effects/feedbacksEffects";
 import { Customer } from "../../redux/interfaces/cutsomers";
 import { AppState } from '../../redux/store/store';
-
+import Button from "@material-ui/core/Button"; 
+import TextField from "@material-ui/core/TextField";
 import styled from "styled-components";
 const CustomerItem = styled.div`
 padding: 0.5rem;
@@ -21,8 +22,9 @@ margin-right: 2rem;
 border-right: 2px solid #000;
 `;
 const ActionButton = styled.button`
-    max-width:120px; 
-    border:none;
+    max-width:250px; 
+    border:none; 
+    background-color:whitesmoke;
 `
 export default function CustomersList() {
     const dispatch = useDispatch();
@@ -69,9 +71,9 @@ export default function CustomersList() {
     return <CustomerItemsList>
         <h3>Customers</h3>
         <ActionButton>
-            <button onClick={() => handleAddNewCustomer()}>Add Customer</button>
+            <Button onClick={() => handleAddNewCustomer()}>Add Customer</Button>
         </ActionButton>
-        {newInput && <input type="text" value={newCustomerVal} placeholder="New Customer" onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => handleInputChange(e)} />}
+        {newInput && <TextField type="text" value={newCustomerVal} placeholder="New Customer" onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => handleInputChange(e)} />}
         {customersListItems}
     </CustomerItemsList>;
 }
